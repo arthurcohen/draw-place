@@ -1,0 +1,19 @@
+{% extends 'place/base.html' %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% block content %}
+<script src="{% static 'place/js/canvas.js' %}"></script>
+
+<i></i>
+<button style="position: absolute; right: 10px; top: 0px;" onclick="changeColorStroke(255, 0, 0)">red</button>
+<button style="position: absolute; right: 10px; top: 30px;" onclick="changeColorStroke(0, 255, 0)">green</button>
+<button style="position: absolute; right: 10px; top: 60px;" onclick="changeColorStroke(0, 0, 255)">blue</button>
+<form action="/canvas/save/" method="POST">
+    {% csrf_token %}
+    <input type="text" id="image" name="image" hidden>
+    <input type="text" id="name" name="name" value="{{ name }}" hidden>
+    <input type="text" id="urlimage" name="urlimage" value="{{ dataurl }}" hidden>
+    <button type="submit" style="position: absolute; right: 10px; bottom: 60px;">save</button>
+</form>
+{% endblock %}

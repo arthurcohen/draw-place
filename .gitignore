@@ -1,3 +1,9 @@
+# My project rules
+images/
+migrations/
+*.sqlite3
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
